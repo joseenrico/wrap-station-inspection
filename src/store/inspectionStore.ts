@@ -42,16 +42,13 @@ const initialState = {
 
 export const useInspectionStore = create<InspectionState>((set) => ({
   ...initialState,
-
   setFormData: (data) =>
     set((state) => ({
       formData: { ...state.formData, ...data },
     })),
-
   setConditionDetail: (category, subCategory, detail) =>
     set((state) => {
       const newReport = { ...state.conditionReport };
-
       if (category === 'paint') {
         newReport.paint = { ...newReport.paint, ...detail };
       } else if (category === 'glass' && subCategory) {
@@ -65,10 +62,8 @@ export const useInspectionStore = create<InspectionState>((set) => ({
           [subCategory]: { ...newReport.tiresAndWheels[subCategory as keyof typeof newReport.tiresAndWheels], ...detail },
         };
       }
-
       return { conditionReport: newReport };
     }),
-
   setExportData: (data) =>
     set((state) => ({
       exportData: { ...state.exportData, ...data },

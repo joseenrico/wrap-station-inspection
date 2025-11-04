@@ -8,19 +8,17 @@ import { PencilSquareIcon, CheckCircleIcon } from '@heroicons/react/24/solid';
 export function InspectionFormPage() {
   const { formData, setFormData } = useInspectionStore();
   const [showColorPicker, setShowColorPicker] = useState(false);
-
   const handleInputChange = (field: string, value: string) => {
     if (field === 'licensePlate') {
       value = value.replace(/\s/g, '').toUpperCase();
     }
     setFormData({ [field]: value });
   };
-
-  const fields = [
-    { label: 'Location', key: 'location', type: 'text', placeholder: 'e.g., Wrap Station Medan' },
+  const FORM_FIELDS = [
+    { label: 'Location', key: 'location', type: 'text', placeholder: 'e.g., Wrap Station Gading Serpong' },
     { label: 'Customer First Name', key: 'customerFirstName', type: 'text', placeholder: 'First name' },
     { label: 'Customer Last Name', key: 'customerLastName', type: 'text', placeholder: 'Last name' },
-    { label: 'Customer Phone Number', key: 'customerPhone', type: 'tel', placeholder: '+62 xxx' },
+    { label: 'Customer Phone Number', key: 'customerPhone', type: 'tel', placeholder: '+62812345678' },
     { label: 'Car Brand', key: 'carBrand', type: 'text', placeholder: 'e.g., Toyota' },
     { label: 'Car Model', key: 'carModel', type: 'text', placeholder: 'e.g., Camry' },
     { label: 'Year', key: 'year', type: 'number', placeholder: '2025' },
@@ -36,7 +34,7 @@ export function InspectionFormPage() {
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Vehicle Inspection Form</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
-        {fields.map((field) => (
+        {FORM_FIELDS.map((field) => (
           <div key={field.key} className="w-full">
             <label className="block text-sm font-medium text-gray-700 mb-2">{field.label}</label>
             <input

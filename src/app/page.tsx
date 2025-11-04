@@ -10,7 +10,6 @@ import { AppLayout } from '@/components/layout/AppLayout';
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<NavigationPage>('dashboard');
-
   const renderPage = () => {
     switch (currentPage) {
       case 'dashboard':
@@ -25,7 +24,6 @@ export default function Home() {
         return <DashboardPage onNavigate={setCurrentPage} />;
     }
   };
-
   return (
     <AppLayout currentPage={currentPage} onNavigate={setCurrentPage}>
       {renderPage()}
