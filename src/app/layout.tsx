@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
-import { Rubik } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/components/Providers';
-
-const rubik = Rubik({ subsets: ['latin'], weight: ['400', '500', '600', '700']   });
+import { ins } from 'framer-motion/client';;
 
 export const metadata: Metadata = {
   title: 'WrapStation Inspection Report',
@@ -17,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={rubik.className}>
+      <body className={''}>
         <Providers>
           {children}
         </Providers>
